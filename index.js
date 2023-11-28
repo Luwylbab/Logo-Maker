@@ -1,5 +1,9 @@
 const fs = require("fs")
 const inquirer = require('inquirer')
+const Shape = require('./lib/Shape.js')
+const Triangle = require('./lib/Triangle.js')
+const Square = require('./lib/Square.js')
+const Circle = require('./lib/Circle.js')
 
 inquirer
   .prompt([
@@ -26,15 +30,25 @@ inquirer
       name: 'textColor',
         
     },
-  ])
+  ]) .then(function(answers){
 
-// Use inquire prompt and have 4 prompts: shape, shape color, text, and text color
-const svg = `<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" version="1.1">
-<circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="${shapeColor}" />
-<text x="0" y="15" fill="${textColor}">${text}</text>
-</svg>`
+let shape;
+
+if (answers.shape === 'circle'){
+  shape = new Circle (answers.shapeColor, answers.text, answers.textColor)
+}
+else if (answers.shape === 'square'){
+  shape = new Square (answers.shapeColor, answers.text, answers.textColor)
+}
+else if (answers.shape === 'triangle'){
+  shape = new Triangle (answers.shapeColor, answers.text, answers.textColor)
+}
+
+const svg = shape.setSVG()
 
 fs.writeFile('example.svg', svg, function(err){
     if (err) throw err;
     console.log('svg written')
+})
+
 })
