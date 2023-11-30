@@ -28,4 +28,4 @@ https://bootcampspot.instructure.com/courses/4612/external_tools/313
 Stack overflow for help on writing and editing SVG:
 https://stackoverflow.com/
 
-Tutoring assistance with JQuery from Andrew Hardemon
+Tutoring assistance from Andrew Hardemon
