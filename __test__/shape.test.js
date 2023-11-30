@@ -10,7 +10,8 @@ describe('Shapes', () => {
   describe('circle', () => {
     it('should generate a circle shape', () => {
         const shape = new Circle ('green', 'SVG', 'white')
-      expect(shape.setShape()).toEqual(`<circle cx="50" cy="50" r="100" fill="green" />`);
+      expect(shape.setShape()).toEqual(`<circle cx="100" cy="100" r="100" fill="green" />\n` + 
+      `  <text x="100" y="100" text-anchor="middle" alignment-baseline="middle" fill="white" style="font-size: 80px;">SVG</text>`);
     });
   });
 
@@ -18,7 +19,8 @@ describe('Shapes', () => {
   describe('triangle', () => {
     it('should generate a triangle shape', () => {
         const shape = new Triangle ('green', 'SVG', 'white')
-      expect(shape.setShape()).toEqual(`<polygon points="100,30 200,200 0,200" fill="green" />`);
+      expect(shape.setShape()).toEqual(`<polygon points="100,30 200,200 0,200" fill="green" />\n` +
+      `        <text x="100" y="160" text-anchor="middle" alignment-baseline="middle" fill="white" style="font-size: 60px;">SVG</text>`);
     });
   });
 
@@ -26,7 +28,8 @@ describe('Shapes', () => {
   describe('square', () => {
     it('should generate a square shape', () => {
         const shape = new Square ('green', 'SVG', 'white')
-      expect(shape.setShape()).toEqual(`<rect width="200" height="200" fill="green" />`);
+      expect(shape.setShape()).toEqual(`<rect width="200" height="200" fill="green" />\n` + 
+      `        <text x="100" y="100" text-anchor="middle" alignment-baseline="middle" fill="white" style="font-size: 80px;">SVG</text>`);
     });
   });
 

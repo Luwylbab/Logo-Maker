@@ -5,6 +5,7 @@ const Triangle = require('./lib/Triangle.js')
 const Square = require('./lib/Square.js')
 const Circle = require('./lib/Circle.js')
 
+
 inquirer
   .prompt([
     {
@@ -21,8 +22,15 @@ inquirer
     },
     {
       type: 'input',
-      message: 'Enter your text:',
+      message: 'Enter your text (maximum 3 characters):',
       name: 'text',
+      validate: function (input) {
+        if (input.length <= 3) {
+          return true;
+        } else {
+          return 'Please enter a maximum of 3 characters.';
+        }
+      },
     },
     {
       type: 'input',
